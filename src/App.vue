@@ -1,22 +1,32 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
+  <div>
+    {{ person.name + " " + person.email }}
+  </div>
+  <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld :person="person" />
 </template>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-let p = {name: "John", email: "john@doe" }
+import HelloWorld from "./components/HelloWorld.vue";
+let p = { name: "John", email: "john@doe" };
 
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {
-      person: p
-    }
+      person: Object.assign({},p,{prop1:"kati", prop2:"itak"})
+    };
   },
   components: {
-    HelloWorld
-  }
-}
+    HelloWorld,
+  },
+
+  mounted() {
+    console.log(p);
+  },
+  updated() {
+    console.log(p);
+  },
+};
 </script>
 <style>
 #app {

@@ -1,26 +1,32 @@
 <template>
+  <br />
   {{ person.name + " " + person.email }}
   <div class="hello">
-    <input type="text" v-model="koukou.name">
-    <input type="text" v-model="koukou.email">
+    <input type="text" v-model="koukou.name" />
+    <br />
+    <input type="text" v-model="koukou.email" />
     <h1>{{ msg }}</h1>
-
   </div>
 </template>
 
 <script>
 export default {
   name: "HelloWorld",
-  data(){
-    return{
-      koukou:this.person
-    }
+  data() {
+    return {
+      koukou: this.person,
+    };
+  },
+  mounted() {
+    console.log(this.koukou);
+  },
+  updated() {
+    console.log(this.koukou);
   },
   props: {
-    msg: {type: String, default: "Test 2Way Binding", required: false },
-    person: {type:Object}  
-      
-  }
+    msg: { type: String, default: "Test 2Way Binding", required: false },
+    person: { type: Object },
+  },
 }
 </script>
 
